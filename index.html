@@ -1,21 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>RAGECORE Albümü</title>
+  <title>RAGECORE</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica&family=Orbitron&display=swap" rel="stylesheet" />
   <style>
-    body { background-color: #001f3f; color: white; font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-    a { color: #ff4136; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    @font-face {
+      font-family: 'VampyrCastle';
+      src: url('https://cdn.jsdelivr.net/gh/jhuckaby/webfonts/VampyrCastle.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      margin: 0; padding: 50px; 
+      height: 100vh;
+      background: linear-gradient(-45deg, #000b1f, #001840, #00122d, #000b1f);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: white;
+      font-family: 'IM Fell Double Pica', serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    @keyframes gradientAnimation {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    h1 {
+      font-family: 'VampyrCastle', cursive, serif;
+      font-size: 5rem;
+      color: white;
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    nav {
+      margin-top: 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+    }
+    nav a {
+      color: #a8d0ff;
+text-decoration: none;
+      margin: 0 15px;
+      position: relative;
+      padding-left: 25px;
+      display: inline-block;
+      user-select: none;
+    }
+    nav a:hover {
+      color: #ffffff;
+    }
+    nav a::before {
+      content: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      filter: brightness(0) invert(1);
+    }
+    p {
+      font-family: 'IM Fell Double Pica', serif;
+      color: white;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
-  <h1>RAGECORE Albümü</h1>
-  <p>Yakında çıkacak albümün sitesi.</p>
-  <p><a href="manifesto.html">Albüm Manifestosu</a></p>
-  <p><a href="#">Albüm Linkleri</a></p>
+  <h1>RAGECORE</h1>
+  <nav>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#tracks">Şarkılar</a>
+    <a href="#contact">İletişim</a>
+  </nav>
+  <section id="manifesto" style="margin-top: 50px;">
+    <h2 style="font-family: 'Metal Mania', cursive; color: white;">Manifesto Başlığı</h2>
+    <p>Buraya manifesto metni gelecek...</p>
+  </section>
+  <section id="tracks" style="margin-top: 50px;">
+    <h2 style="font-family: 'Metal Mania', cursive; color: white;">Şarkılar</h2>
+    <p>Buraya şarkı listesi veya detayları gelecek...</p>
+  </section>
+  <section id="contact" style="margin-top: 50px;">
+<h2 style="font-family: 'Metal Mania', cursive; color: white;">İletişim</h2>
+    <p>İletişim bilgileri burada...</p>
+  </section>
 </body>
 </html>
-
-
