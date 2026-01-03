@@ -65,6 +65,30 @@ user-select: none;
     <a href="merch.html">Merch</a>
     <a href="#contact">İletişim</a>
   </nav>
+
+  <div style="margin-top: 30px;">
+  <audio id="background-audio" src="anarchointerlude0.mp3" preload="auto"></audio>
+  <button id="play-pause-btn" 
+          style="padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 5px; border: none; background-color: #a8d0ff; color: #000;">
+    ► Anarcho'yu Çal
+  </button>
+</div>
+
+<script>
+  const audio = document.getElementById('background-audio');
+  const btn = document.getElementById('play-pause-btn');
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '■ Anarcho\'yu Durdur';
+    } else {
+      audio.pause();
+      btn.textContent = '► Anarcho\'yu Çal';
+    }
+  });
+</script>
+
   <section id="tracks" style="margin-top: 50px;">
   <h2 style="font-family: 'Metal Mania', cursive; color: white;">Tracklist</h2>
   <ul style="list-style: none; padding: 0; font-family: 'IM Fell Double Pica', serif; font-size: 1.2rem;">
@@ -83,16 +107,9 @@ user-select: none;
     <p>For Real</p>
   </section>
 
-<div style="margin-top: 30px;">
-  <audio id="background-audio" src="anarchointerlude0.mp3" preload="auto"></audio>
-  <button onclick="document.getElementById('background-audio').play()" 
-          style="padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 5px; border: none; background-color: #a8d0ff; color: #000;">
-    ► Şarkıyı Çal
-  </button>
-</div>
-
 </body>
 </html>
+
 
 
 
