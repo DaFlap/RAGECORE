@@ -1,175 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<title>RAGECORE MANIFESTOSU</title>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=IM+Fell+Double+Pica&family=Metal+Mania&display=swap" rel="stylesheet" />
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Blogger+Sans&display=swap');
-
-  /* Genel ayarlar */
-  body {
-    margin: 0; padding: 0;
-    background: linear-gradient(180deg, #001f3f, #002b5f);
-    color: white;
-    font-family: 'IM Fell Double Pica', serif;
-    scroll-behavior: smooth;
-    position: relative;
-  }
-  h1, h2, h3 {
-    margin: 0; padding: 0;
-  }
-
-  /* İlk sayfa */
-  #cover {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Metal Mania', cursive;
-    font-size: 5rem;
-    text-align: center;
-    user-select: none;
-  }
-
-  /* İçindekiler sayfası */
-  #contents {
-    padding: 40px 20px;
-    font-family: 'Metal Mania', cursive;
-    color: white; /* Beyaz yazı */
-  }
-  #contents h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  #contents ul {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 0 auto;
-font-weight: 300;
-    max-width: 700px;
-  }
-
-  /* Sayfa numaraları */
-  @font-face {
-    font-family: 'Blogger Sans';
-    src: url('https://fonts.googleapis.com/css2?family=Blogger+Sans&display=swap');
-  }
-  .page-number {
-    position: fixed;
-    bottom: 5px;
-    right: 10px;
-    font-family: 'Blogger Sans', sans-serif;
-    color: white;
-    font-size: 1rem;
-    user-select: none;
-  }
-</style>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach((sec, i) => {
-      const pgNum = document.createElement('div');
-      pgNum.className = 'page-number';
-      pgNum.textContent = `Sayfa ${i+1}`;
-      sec.appendChild(pgNum);
-    });
-
-    // Türkçe karakterleri değiştir (ş->s, ç->c, ğ->g, ü->u, ö->o, ı->i)
-    function replaceTurkishChars(node) {
-      if(node.nodeType === Node.TEXT_NODE){
-        node.textContent = node.textContent
-          .replace(/ş/g, 's')
-          .replace(/Ş/g, 'S')
-          .replace(/ç/g, 'c')
-          .replace(/Ç/g, 'C')
-          .replace(/ğ/g, 'g')
-          .replace(/Ğ/g, 'G')
-          .replace(/ü/g, 'u')
-          .replace(/Ü/g, 'U')
-          .replace(/ö/g, 'o')
-          .replace(/Ö/g, 'O')
-          .replace(/ı/g, 'i')
-          .replace(/İ/g, 'I');
-} else {
-        node.childNodes.forEach(replaceTurkishChars);
-      }
+  <meta charset="UTF-8" />
+  <title>RAGECORE MANIFESTOSU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=IM+Fell+Double+Pica&family=Metal+Mania&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #001f3f, #002b5f);
+      color: white;
+      font-family: 'IM Fell Double Pica', serif;
+      scroll-behavior: smooth;
     }
-    replaceTurkishChars(document.body);
-  });
-</script>
+
+    h2 {
+      font-family: 'Metal Mania', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin: 0 20px 20px 20px;
+    }
+
+    #cover {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Metal Mania', cursive;
+      font-size: 5rem;
+      text-align: center;
+    }
+
+    section {
+      min-height: 100vh;
+      padding-top: 60px;
+      position: relative;
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 1rem;
+      color: white;
+      font-family: 'IM Fell Double Pica', serif;
+    }
+
+    #contents ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+margin: 0 auto;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    #contents ul li {
+      margin: 20px 0;
+    }
+
+    #contents ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #contents ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .quote-box {
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      padding: 15px 20px;
+      margin: 30px 20px;
+      border-radius: 8px;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.2rem;
+    }
+
+    .track-title {
+      font-family: 'Metal Mania', cursive;
+      font-size: 2rem;
+      margin: 30px 20px 10px 20px;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Kapak sayfası -->
-<div id="cover">
-  RAGECORE MANIFESTOSU
-</div>
+  <div id="cover">
+    RAGECORE MANIFESTOSU
+  </div>
 
-<!-- İçindekiler -->
-<div id="contents">
-  <h2>İcindekiler</h2>
-  <ul>
-    <li><a href="#rage-nedir">Rage Nedir?</a></li>
-    <li><a href="#temasi-ve-amaci">RAGECORE'un Temasi ve Amaci</a></li>
-    <li><a href="#sound-yapisi">Sound Yapisi ve Tur Fuzyonlari</a></li>
-    <li><a href="#sarki-hikayesi">Sarkilarin Hikayesi (Track-by-Track Analiz)</a></li>
-    <li><a href="#dinleyici-mesaj">Dinleyiciye Mesaj ve Uyari</a></li>
-    <li><a href="#final">Final: Agresifligin Sanata Donusumu</a></li>
-  </ul>
-</div>
-
-<!-- Bölümler -->
-<section id="rage-nedir">
-  <h2>Rage Nedir?</h2>
-  <p>Buraya Rage turunu tanitan metin eklenecek.</p>
+  <section id="contents">
+    <h2>İçindekiler</h2>
+    <ul>
+      <li><a href="#rage-nedir">Rage Nedir?</a></li>
+      <li><a href="#temasi-ve-amaci">RAGECORE'un Teması ve Amacı</a></li>
+      <li><a href="#sound-yapisi">Sound Yapısı ve Tür Füzyonları</a></li>
+      <li><a href="#sarki-hikayesi">Şarkıların Hikayesi</a></li>
+      <li><a href="#track1">Track 1: Aşık Ol</a></li>
+      <li><a href="#dinleyici-mesaj">Dinleyiciye Mesaj ve Uyarı</a></li>
+      <li><a href="#final">Final</a></li>
+    </ul>
+    <div class="page-number">Sayfa 1</div>
 </section>
 
-<section id="temasi-ve-amaci">
-  <h2>RAGECORE'un Temasi ve Amaci</h2>
-  <p>Buraya albumun temasi ve amaci anlatilacak.</p>
-</section>
+  <section id="rage-nedir">
+    <h2>Rage Nedir?</h2>
+    <p>Buraya Rage türünü tanıtan metin eklenecek.</p>
+    <div class="page-number">Sayfa 2</div>
+  </section>
 
-<section id="sound-yapisi">
-  <h2>Sound Yapisi ve Tur Fuzyonlari</h2>
-  <p>Buraya turlerin nasil karistigi aciklanacak.</p>
-</section>
+  <section id="temasi-ve-amaci">
+    <h2>RAGECORE'un Teması ve Amacı</h2>
+    <p>Buraya albümün teması ve amacı anlatılacak.</p>
+    <div class="page-number">Sayfa 3</div>
+  </section>
 
-<section id="sarki-hikayesi">
-  <h2>Sarkilarin Hikayesi (Track-by-Track Analiz)</h2>
-  <div class="track-title">Track 1: Asik Ol</div>
-<p>Bir kadin uzerinden anlatilan dramatik bir hikaye...  
-  Sarkida bir kadindan askla bahsediliyor; ancak buna ragmen onunla birlikte olunamayacagi soyleniyor. Cunku askin beraberinde getirdigi pek cok zıt duygu, anlaticinin icinde bariniyor. Bu zıtliklar arasinda en cok one cikan ise kaos.</p>
+  <section id="sound-yapisi">
+    <h2>Sound Yapısı ve Tür Füzyonları</h2>
+    <p>Buraya türlerin nasıl karıştığı açıklanacak.</p>
+    <div class="page-number">Sayfa 4</div>
+  </section>
 
-  <div class="quote-box">’’Lutfen sevme beni, kaos benim gobek adim.’’</div>
+  <section id="sarki-hikayesi">
+    <h2>Şarkıların Hikayesi</h2>
+    <p>Track-by-Track analiz bölümü giriş metni buraya yazılabilir.</p>
+    <div class="page-number">Sayfa 5</div>
+  </section>
 
-  <p>Sarkinin devaminda, hissedilen yikimin, ofkenin ve karanligin derinligi vurgulaniyor ve tum bu duygularin muzikte de yansidigi ifade ediliyor. Bu noktada sarkinin vermek istedigi ana tema netlesiyor:  
-  “Bana degil, muzikime asik ol.”</p>
+  <section id="track1">
+    <h2>Track 1: Aşık Ol</h2>
+    <div class="track-title">Track 1: Aşık Ol</div>
+    <p>Bir kadın üzerinden anlatılan dramatik bir hikâye... Şarkıda bir kadından aşkla bahsediliyor; ancak buna rağmen onunla birlikte olunamayacağı söyleniyor. Çünkü aşkın beraberinde getirdiği pek çok zıt duygu, anlatıcının içinde barınıyor. Bu zıtlıklar arasında en çok öne çıkan ise kaos.</p>
+    <div class="quote-box">“Lütfen sevme beni, kaos benim göbek adım.”</div>
+<p>Şarkının devamında, hissedilen yıkımın, öfkenin ve karanlığın derinliği vurgulanıyor ve tüm bu duyguların müziğe de yansıdığı ifade ediliyor. Bu noktada şarkının vermek istediği ana tema netleşiyor: “Bana değil, müziğime âşık ol.”</p>
+    <div class="quote-box">“Bunu kabullendim, o yüzden sen müziğime âşık ol!”</div>
+    <p>Genel olarak şarkı, içsel dünyanın bir dışavurumu niteliğinde. Aynı zamanda albümün devamı için güçlü bir uyarı da içeriyor: “Bir kaos var ve geliyor.”</p>
+    <div class="quote-box">“Ara sıra nefeslenmek istersen, bunu açtıysan bir durak yok.”</div>
+    <p>Bu uyarıyı dikkate alın. Eğer bu enerjiyi taşıyamayacağınızı düşünüyorsanız, albümü ilk şarkıdan kapatabilirsiniz. Ancak, eğer siz de her insan gibi içinizde yoğun, patlamaya hazır ve kaos dolu duygular barındırıyor ve bunları ötekileştirmek yerine kabul ediyorsanız, RAGECORE dinlemeye devam etmenizi bekliyor.</p>
+    <div class="page-number">Sayfa 6</div>
+  </section>
 
-  <div class="quote-box">’’Bunu kabullendim, o yuzden sen muzikime asik ol!’’</div>
+  <section id="dinleyici-mesaj">
+    <h2>Dinleyiciye Mesaj ve Uyarı</h2>
+    <p>Buraya mesaj ve uyarılar yazılacak.</p>
+    <div class="page-number">Sayfa 7</div>
+  </section>
 
-  <p>Genel olarak sarki, icsel dunyanin bir disavurumu niteliginde. Ayni zamanda albumun devamı icin guclu bir uyari da iceriyor:  
-  “Bir kaos var ve geliyor.”</p>
-
-  <div class="quote-box">’’Ara sira nefeslenmek istersen, bunu actiysan bir durak yok.’’</div>
-
-  <p>Bu uyarıyı dikkate alin. Eger bu enerjiyi tasiyamayacaginizi dusunuyorsaniz, albumu ilk sarkidan kapatabilirsiniz. Ancak, eger siz de her insan gibi icinizde yogun, patlamaya hazir ve kaos dolu duygular barindiyor ve bunlari otekilestirmek yerine kabul ediyorsaniz, RAGECORE dinlemeye devam etmenizi bekliyor.</p>
-</section>
-
-<section id="dinleyici-mesaj">
-  <h2>Dinleyiciye Mesaj ve Uyari</h2>
-  <p>Buraya mesaj ve uyarilar yazilacak.</p>
-</section>
-
-<section id="final">
-  <h2>Final: Agresifligin Sanata Donusumu</h2>
-  <p>Buraya son temalar eklenebilir.</p>
+  <section id="final">
+    <h2>Final: Agresifliğin Sanata Dönüşümü</h2>
+    <p>Buraya son temalar eklenebilir.</p>
+    <div class="page-number">Sayfa 8</div>
 </section>
 
 </body>
 </html>
+
+
+
 
 
 
