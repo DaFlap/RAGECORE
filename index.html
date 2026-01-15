@@ -18,49 +18,17 @@ body {
   font-family: 'IM Fell Double Pica', serif;
   text-align: center;
   overflow-x: hidden;
-  background: #000214;
-}
 
-/* ===== ALBUM BACKGROUND ===== */
-.album-bg {
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(to left,
-      #000214 0%,
-      #000214 38%,
-      rgba(0,0,0,0.55) 55%,
-      rgba(0,0,0,0.85) 75%,
-      #000214 100%
-    ),
-    url("assets/img/album-cover.jpg") no-repeat right center;
-  background-size: contain;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Dust + cinematic fade */
-.album-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
-}
-
-/* ===== GLOW FOLLOW ===== */
-.album-glow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: screen;
+  /* TEK ARKAPLAN FOTO */
+  background: url('assets/img/album-cover.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* ===== CONTENT ===== */
 .content {
   position: relative;
-  z-index: 5;
+  z-index: 2; /* Arkaplanın üstünde */
 }
 
 /* ===== TITLE ===== */
@@ -76,6 +44,8 @@ nav {
   margin-top: 10px;
   font-family: 'Orbitron', sans-serif;
   font-size: 1.25rem;
+  z-index: 2;
+  position: relative;
 }
 
 nav a {
@@ -88,7 +58,7 @@ nav a:hover {
   color: white;
 }
 
-/* ===== AUDIO ===== */
+/* ===== AUDIO BUTTON ===== */
 #play-pause-btn {
   margin-top: 25px;
   padding: 10px 22px;
@@ -111,14 +81,18 @@ nav a:hover {
   width: 42%;
 }
 
+/* ===== MINIMAL GLOW ===== */
+.album-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* Arkaplan ile içerik arasında */
+  mix-blend-mode: screen;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
   body { padding: 30px 25px; }
-
-  .album-bg {
-    background-position: center;
-    opacity: 0.4;
-  }
 
   .album-layout {
     flex-direction: column;
@@ -133,7 +107,6 @@ nav a:hover {
 
 <body>
 
-<div class="album-bg"></div>
 <div class="album-glow" id="albumGlow"></div>
 
 <div class="content">
@@ -192,14 +165,14 @@ btn.onclick = () => {
   }
 };
 
-/* GLOW FOLLOW */
+/* MINIMAL GLOW FOLLOW */
 const glow = document.getElementById("albumGlow");
 
 function setGlow(x,y){
   glow.style.background =
-    `radial-gradient(circle 220px at ${x}px ${y}px,
-      rgba(168,208,255,0.22),
-      transparent 65%)`;
+    `radial-gradient(circle 150px at ${x}px ${y}px,
+      rgba(168,208,255,0.15),
+      transparent 60%)`;
 }
 
 window.addEventListener("mousemove", e => setGlow(e.clientX,e.clientY));
@@ -211,6 +184,8 @@ window.addEventListener("touchmove", e => {
 
 </body>
 </html>
+
+
 
 
 
