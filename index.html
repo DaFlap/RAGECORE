@@ -52,6 +52,51 @@ user-select: none;
       margin: 0 auto 20px auto;
       line-height: 1.6;
     }
+    /* ALBUM LAYOUT */
+.album-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.album-side {
+  width: 28%;
+}
+
+.album-center {
+  width: 44%;
+}
+
+.album-video video {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: brightness(0.75) contrast(1.1);
+}
+
+.album-cover img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* MOBİL */
+@media (max-width: 900px) {
+  .album-layout {
+    flex-direction: column;
+  }
+
+  .album-side,
+  .album-center {
+    width: 100%;
+  }
+
+  .album-video video {
+    height: 250px;
+  }
+}
   </style>
 </head>
 <body>
@@ -89,17 +134,34 @@ user-select: none;
   });
 </script>
 
-  <section id="tracks" style="margin-top: 50px;">
-  <h2 style="font-family: 'Metal Mania', cursive; color: white;">Tracklist</h2>
-  <ul style="list-style: none; padding: 0; font-family: 'IM Fell Double Pica', serif; font-size: 1.2rem;">
-    <li>Aşık Ol</li>
-    <li>Rage Up!</li>
-    <li>Giremez Hiç Bi Hoe</li>
-    <li>Lacivert</li>
-    <li>Gündüz Gezen</li>
-    <li>ChromeHearts Freestyle</li>
-    <li>Flapanth</li>
-  </ul>
+  <section id="tracks" class="album-layout">
+
+  <!-- SOL: LOOP VIDEO -->
+  <div class="album-side album-video">
+    <video autoplay muted loop playsinline>
+      <source src="assets/video/concept-loop.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- ORTA: TRACKLIST -->
+  <div class="album-center">
+    <h2 style="font-family: 'Metal Mania', cursive; color: white;">Tracklist</h2>
+    <ul style="list-style: none; padding: 0; font-family: 'IM Fell Double Pica', serif; font-size: 1.2rem;">
+      <li>Aşık Ol</li>
+      <li>Rage Up!</li>
+      <li>Giremez Hiç Bi Hoe</li>
+      <li>Lacivert</li>
+      <li>Gündüz Gezen</li>
+      <li>ChromeHearts Freestyle</li>
+      <li>Flapanth</li>
+    </ul>
+  </div>
+
+  <!-- SAĞ: ALBÜM KAPAĞI -->
+  <div class="album-side album-cover">
+    <img src="assets/img/album-cover.jpg" alt="RAGECORE Album Cover">
+  </div>
+
 </section>
 
   <section id="contact" style="margin-top: 50px;">
@@ -109,6 +171,7 @@ user-select: none;
 
 </body>
 </html>
+
 
 
 
