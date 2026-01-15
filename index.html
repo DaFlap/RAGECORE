@@ -28,7 +28,8 @@ body {
 /* ===== CONTENT ===== */
 .content {
   position: relative;
-  z-index: 2; /* Arkaplanın üstünde */
+  z-index: 2;
+  margin-top: -40px;
 }
 
 /* ===== TITLE ===== */
@@ -73,12 +74,13 @@ nav a:hover {
 /* ===== TRACKLIST ===== */
 .album-layout {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* ORTALA */
   margin-top: 65px;
 }
 
 .album-center {
   width: 42%;
+  text-align: center; /* içerik ortada */
 }
 
 /* ===== MINIMAL GLOW ===== */
@@ -86,13 +88,21 @@ nav a:hover {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1; /* Arkaplan ile içerik arasında */
+  z-index: 1;
   mix-blend-mode: screen;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
-  body { padding: 30px 25px; }
+  body { 
+    padding: 30px 25px; 
+    background-position: top center;
+    background-size: contain;
+  }
+
+  .content { 
+    margin-top: -20px; 
+  }
 
   .album-layout {
     flex-direction: column;
@@ -100,6 +110,7 @@ nav a:hover {
 
   .album-center {
     width: 100%;
+    margin-top: 30px;
   }
 }
 </style>
@@ -184,12 +195,6 @@ window.addEventListener("touchmove", e => {
 
 </body>
 </html>
-
-
-
-
-
-
 
 
 
