@@ -7,119 +7,117 @@
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica&family=Orbitron&family=Metal+Mania&display=swap" rel="stylesheet">
 
 <style>
-/* ===== RESET ===== */
 * { box-sizing: border-box; }
 
 /* ===== BODY ===== */
 body {
   margin: 0;
-  padding: 50px;
+  padding: 40px 50px 60px;
   min-height: 100vh;
   color: white;
   font-family: 'IM Fell Double Pica', serif;
   text-align: center;
   overflow-x: hidden;
-
-  background: radial-gradient(circle at top left, #020a3a, #000214 60%);
-  animation: bgFlow 10s ease-in-out infinite alternate;
+  background: #000214;
 }
 
-@keyframes bgFlow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(-10deg); }
-}
-
-/* ===== ALBUM BACKGROUND (RIGHT SIDE) ===== */
+/* ===== ALBUM BACKGROUND ===== */
 .album-bg {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 55vw;
-  height: 100vh;
-  background: url("assets/img/album-cover.jpg") no-repeat right center;
+  inset: 0;
+  background:
+    linear-gradient(to left,
+      #000214 0%,
+      #000214 38%,
+      rgba(0,0,0,0.55) 55%,
+      rgba(0,0,0,0.85) 75%,
+      #000214 100%
+    ),
+    url("assets/img/album-cover.jpg") no-repeat right center;
   background-size: contain;
-  pointer-events: none;
   z-index: 0;
-  filter: brightness(0.9) contrast(1.1);
+  pointer-events: none;
 }
 
-/* Fade + dust */
+/* Dust + cinematic fade */
 .album-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to left,
-      rgba(0,0,0,0) 0%,
-      rgba(0,3,22,0.4) 35%,
-      rgba(0,3,22,0.8) 70%,
-      rgba(0,3,22,1) 100%
-    ),
     radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
 }
 
-/* Glow following cursor */
+/* ===== GLOW FOLLOW ===== */
 .album-glow {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(circle 200px at 50% 50%, rgba(168,208,255,0.18), transparent 60%);
   mix-blend-mode: screen;
-  transition: background 0.15s ease;
 }
 
-/* ===== CONTENT LAYER ===== */
+/* ===== CONTENT ===== */
 .content {
   position: relative;
   z-index: 5;
 }
 
-/* ===== HEADINGS ===== */
+/* ===== TITLE ===== */
 h1 {
   font-family: 'Metal Mania', cursive;
   font-size: 5rem;
-  margin-bottom: 30px;
+  margin: 0 0 20px;
   user-select: none;
 }
 
 /* ===== NAV ===== */
 nav {
-  margin-top: 20px;
+  margin-top: 10px;
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.3rem;
-  position: relative;
-  z-index: 10;
+  font-size: 1.25rem;
 }
 
 nav a {
   color: #a8d0ff;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 14px;
 }
 
 nav a:hover {
   color: white;
 }
 
+/* ===== AUDIO ===== */
+#play-pause-btn {
+  margin-top: 25px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #a8d0ff;
+  color: #000;
+  cursor: pointer;
+}
+
 /* ===== TRACKLIST ===== */
 .album-layout {
   display: flex;
   justify-content: flex-start;
-  margin-top: 80px;
+  margin-top: 65px;
 }
 
 .album-center {
-  width: 40%;
-  text-align: center;
+  width: 42%;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
+  body { padding: 30px 25px; }
+
   .album-bg {
-    width: 100vw;
-    opacity: 0.35;
     background-position: center;
+    opacity: 0.4;
   }
 
   .album-layout {
@@ -152,7 +150,7 @@ nav a:hover {
   <a href="#contact">İletişim</a>
 </nav>
 
-<div style="margin-top:30px;">
+<div>
   <audio id="background-audio" src="anarchointerlude0.mp3"></audio>
   <button id="play-pause-btn">► Anarcho'yu Çal</button>
 </div>
@@ -160,7 +158,7 @@ nav a:hover {
 <section class="album-layout">
   <div class="album-center">
     <h2 style="font-family:'Metal Mania';">Tracklist</h2>
-    <ul style="list-style:none;padding:0;">
+    <ul style="list-style:none;padding:0;font-size:1.15rem;">
       <li>Aşık Ol</li>
       <li>Rage Up!</li>
       <li>Giremez Hiç Bi Hoe</li>
@@ -172,7 +170,7 @@ nav a:hover {
   </div>
 </section>
 
-<section id="contact" style="margin-top:80px;">
+<section id="contact" style="margin-top:70px;">
   <h2 style="font-family:'Metal Mania';">Da Flap</h2>
   <p>For Real</p>
 </section>
@@ -197,25 +195,22 @@ btn.onclick = () => {
 /* GLOW FOLLOW */
 const glow = document.getElementById("albumGlow");
 
-window.addEventListener("mousemove", e => {
+function setGlow(x,y){
   glow.style.background =
-    `radial-gradient(circle 220px at ${e.clientX}px ${e.clientY}px,
+    `radial-gradient(circle 220px at ${x}px ${y}px,
       rgba(168,208,255,0.22),
       transparent 65%)`;
-});
+}
 
+window.addEventListener("mousemove", e => setGlow(e.clientX,e.clientY));
 window.addEventListener("touchmove", e => {
   const t = e.touches[0];
-  glow.style.background =
-    `radial-gradient(circle 220px at ${t.clientX}px ${t.clientY}px,
-      rgba(168,208,255,0.22),
-      transparent 65%)`;
+  setGlow(t.clientX,t.clientY);
 });
 </script>
 
 </body>
 </html>
-
 
 
 
