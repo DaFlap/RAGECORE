@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -8,125 +7,123 @@
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica&family=Orbitron&family=Metal+Mania&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing: border-box; }
 
 /* ===== BODY ===== */
 html, body {
-  height: 100vh; /* viewport yüksekliği ile sınırlı */
-  width: 100%;
-  overflow: hidden; /* scroll kapalı */
-}
-
-body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* scrollu kapattık */
   font-family: 'IM Fell Double Pica', serif;
   color: white;
   text-align: center;
-  position: relative;
 }
 
-/* ===== ARKAPLAN ===== */
-body::before {
-  content: "";
-  position: fixed;
-  inset:0;
+/* ===== DESKTOP BACKGROUND ===== */
+body {
   background: url('assets/img/album-cover.jpg') no-repeat center center;
   background-size: cover;
-  z-index: 0;
 }
 
-@media (max-width:900px){
-  body::before{
-    background: url('assets/img/album-cover-mobile.jpg') no-repeat center center;
+/* ===== MOBILE BACKGROUND ===== */
+@media (max-width: 900px) {
+  body {
+    background: url('assets/img/album-cover-mobile.jpg') no-repeat center top;
     background-size: cover;
   }
 }
 
-/* ===== MINIMAL GLOW ===== */
-.album-glow {
-  position: fixed;
-  inset:0;
-  pointer-events: none;
-  z-index:1;
-  mix-blend-mode: screen;
-}
-
-/* ===== CONTENT ===== */
+/* ===== CONTENT LAYER ===== */
 .content {
   position: relative;
-  z-index:2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100vh; /* viewport tam kaplasın */
-  padding: 40px 50px;
+  z-index: 2;
+  padding: 40px 50px 120px; /* alt boşluk artırıldı Da Flap için */
 }
 
 /* ===== TITLE ===== */
 h1 {
   font-family: 'Metal Mania', cursive;
   font-size: 5rem;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
   user-select: none;
 }
 
 /* ===== NAV ===== */
 nav {
-  margin-top:10px;
+  margin-top: 10px;
   font-family: 'Orbitron', sans-serif;
-  font-size:1.25rem;
-  z-index:2;
+  font-size: 1.25rem;
   position: relative;
+  z-index: 2;
 }
 
 nav a {
-  color:#a8d0ff;
-  text-decoration:none;
-  margin:0 14px;
+  color: #a8d0ff;
+  text-decoration: none;
+  margin: 0 14px;
 }
 
-nav a:hover{
-  color:white;
-}
+nav a:hover { color: white; }
 
 /* ===== AUDIO BUTTON ===== */
 #play-pause-btn {
   margin-top: 25px;
   padding: 10px 22px;
-  font-size:1rem;
-  border:none;
-  border-radius:6px;
-  background:#a8d0ff;
-  color:#000;
-  cursor:pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #a8d0ff;
+  color: #000;
+  cursor: pointer;
 }
 
 /* ===== TRACKLIST ===== */
 .album-layout {
-  display:flex;
-  justify-content:center;
-  margin-top:40px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 65px;
 }
 
 .album-center {
-  width:42%;
-  text-align:center;
+  width: 42%;
 }
 
-/* ===== FOOTER ===== */
+/* ===== MINIMAL GLOW ===== */
+.album-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* ===== CONTACT / FOOTER ===== */
 #contact {
-  margin-top:auto; /* en alta it */
-  text-align:center;
+  position: absolute;
+  bottom: 20px; /* sayfanın en altında */
+  width: 100%;
+  text-align: center;
+}
+
+#contact h2, #contact p {
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* ===== MOBILE ===== */
-@media (max-width:900px){
-  .content{
-    padding:30px 20px;
+@media (max-width: 900px) {
+  .content {
+    padding: 30px 25px 100px;
   }
-  .album-center{
-    width:100%;
-    margin-top:20px;
+
+  .album-layout {
+    flex-direction: column;
+  }
+
+  .album-center {
+    width: 100%;
+    margin-top: 30px;
   }
 }
 </style>
@@ -158,7 +155,7 @@ nav a:hover{
 <section class="album-layout">
   <div class="album-center">
     <h2 style="font-family:'Metal Mania';">Tracklist</h2>
-    <ul style="list-style:none; padding:0; font-size:1.15rem;">
+    <ul style="list-style:none;padding:0;font-size:1.15rem;">
       <li>Aşık Ol</li>
       <li>Rage Up!</li>
       <li>Giremez Hiç Bi Hoe</li>
@@ -181,23 +178,29 @@ nav a:hover{
 /* AUDIO */
 const audio = document.getElementById('background-audio');
 const btn = document.getElementById('play-pause-btn');
+
 btn.onclick = () => {
-  if(audio.paused){
+  if (audio.paused) {
     audio.play();
-    btn.textContent="■ Anarcho'yu Durdur";
+    btn.textContent = "■ Anarcho'yu Durdur";
   } else {
     audio.pause();
-    btn.textContent="► Anarcho'yu Çal";
+    btn.textContent = "► Anarcho'yu Çal";
   }
 };
 
 /* MINIMAL GLOW FOLLOW */
 const glow = document.getElementById("albumGlow");
+
 function setGlow(x,y){
-  glow.style.background = `radial-gradient(circle 150px at ${x}px ${y}px, rgba(168,208,255,0.15), transparent 60%)`;
+  glow.style.background =
+    `radial-gradient(circle 150px at ${x}px ${y}px,
+      rgba(168,208,255,0.15),
+      transparent 60%)`;
 }
-window.addEventListener("mousemove", e=>setGlow(e.clientX,e.clientY));
-window.addEventListener("touchmove", e=>{
+
+window.addEventListener("mousemove", e => setGlow(e.clientX,e.clientY));
+window.addEventListener("touchmove", e => {
   const t = e.touches[0];
   setGlow(t.clientX,t.clientY);
 });
