@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html 
+lang="tr">
 <head>
 <meta charset="UTF-8" />
 <title>RAGECORE</title>
@@ -92,15 +93,6 @@ nav a:hover {
   mix-blend-mode: screen;
 }
 
-/* ===== FOOTER ===== */
-#contact {
-  position: absolute;
-  bottom: 30px; /* sayfanın en altında */
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
   body {
@@ -111,7 +103,7 @@ nav a:hover {
   }
 
   .content {
-    margin-top: -20px;
+    margin-top: -20px; /* mobil üst boşluk azaltıldı */
   }
 
   .album-layout {
@@ -120,11 +112,7 @@ nav a:hover {
 
   .album-center {
     width: 100%;
-    margin-top: 30px;
-  }
-
-  #contact {
-    bottom: 20px;
+    margin-top: 30px; /* içerik alt boşluk */
   }
 }
 </style>
@@ -168,7 +156,7 @@ nav a:hover {
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" style="margin-top:70px;">
   <h2 style="font-family:'Metal Mania';">Da Flap</h2>
   <p>For Real</p>
 </section>
@@ -209,5 +197,3 @@ window.addEventListener("touchmove", e => {
 
 </body>
 </html>
-
-
