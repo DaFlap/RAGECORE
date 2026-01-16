@@ -10,35 +10,27 @@
 * { box-sizing: border-box; }
 
 /* ===== BODY ===== */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* scrollu kapattık */
-  font-family: 'IM Fell Double Pica', serif;
-  color: white;
-  text-align: center;
-}
-
-/* ===== DESKTOP BACKGROUND ===== */
 body {
+  margin: 0;
+  padding: 40px 50px 60px;
+  min-height: 100vh;
+  color: white;
+  font-family: 'IM Fell Double Pica', serif;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Scroll kapalı */
+
+  /* MASAÜSTÜ ARKAPLAN */
   background: url('assets/img/album-cover.jpg') no-repeat center center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
-/* ===== MOBILE BACKGROUND ===== */
-@media (max-width: 900px) {
-  body {
-    background: url('assets/img/album-cover-mobile.jpg') no-repeat center top;
-    background-size: cover;
-  }
-}
-
-/* ===== CONTENT LAYER ===== */
+/* ===== CONTENT ===== */
 .content {
   position: relative;
-  z-index: 2;
-  padding: 40px 50px 120px; /* alt boşluk artırıldı Da Flap için */
+  z-index: 2; /* Arkaplanın üstünde */
+  margin-top: -40px; /* desktop üst boşluk ayarı */
 }
 
 /* ===== TITLE ===== */
@@ -54,8 +46,8 @@ nav {
   margin-top: 10px;
   font-family: 'Orbitron', sans-serif;
   font-size: 1.25rem;
-  position: relative;
   z-index: 2;
+  position: relative;
 }
 
 nav a {
@@ -64,7 +56,9 @@ nav a {
   margin: 0 14px;
 }
 
-nav a:hover { color: white; }
+nav a:hover {
+  color: white;
+}
 
 /* ===== AUDIO BUTTON ===== */
 #play-pause-btn {
@@ -94,27 +88,21 @@ nav a:hover { color: white; }
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 1; /* Arkaplan ile içerik arasında */
   mix-blend-mode: screen;
-}
-
-/* ===== CONTACT / FOOTER ===== */
-#contact {
-  position: absolute;
-  bottom: 20px; /* sayfanın en altında */
-  width: 100%;
-  text-align: center;
-}
-
-#contact h2, #contact p {
-  margin: 0;
-  line-height: 1.2;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
+  body {
+    padding: 30px 25px;
+    background: url('assets/img/album-cover-mobile.jpg') no-repeat top center;
+    background-size: cover;
+    background-attachment: scroll; /* fixed kaldırıldı */
+  }
+
   .content {
-    padding: 30px 25px 100px;
+    margin-top: -20px; /* mobil üst boşluk azaltıldı */
   }
 
   .album-layout {
@@ -123,7 +111,7 @@ nav a:hover { color: white; }
 
   .album-center {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 30px; /* içerik alt boşluk */
   }
 }
 </style>
@@ -167,7 +155,7 @@ nav a:hover { color: white; }
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" style="margin-top:70px;">
   <h2 style="font-family:'Metal Mania';">Da Flap</h2>
   <p>For Real</p>
 </section>
