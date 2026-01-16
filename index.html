@@ -92,6 +92,15 @@ nav a:hover {
   mix-blend-mode: screen;
 }
 
+/* ===== FOOTER ===== */
+#contact {
+  position: absolute;
+  bottom: 30px; /* sayfanın en altında */
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
   body {
@@ -102,7 +111,7 @@ nav a:hover {
   }
 
   .content {
-    margin-top: -20px; /* mobil üst boşluk azaltıldı */
+    margin-top: -20px;
   }
 
   .album-layout {
@@ -111,7 +120,11 @@ nav a:hover {
 
   .album-center {
     width: 100%;
-    margin-top: 30px; /* içerik alt boşluk */
+    margin-top: 30px;
+  }
+
+  #contact {
+    bottom: 20px;
   }
 }
 </style>
@@ -155,7 +168,7 @@ nav a:hover {
   </div>
 </section>
 
-<section id="contact" style="margin-top:70px;">
+<section id="contact">
   <h2 style="font-family:'Metal Mania';">Da Flap</h2>
   <p>For Real</p>
 </section>
@@ -196,4 +209,5 @@ window.addEventListener("touchmove", e => {
 
 </body>
 </html>
+
 
